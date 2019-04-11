@@ -1,0 +1,82 @@
+body {
+ background-color: #334;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+}
+
+h2 {
+  color: white;
+  text-align: center;
+}
+
+.container {
+  width: 49%;
+  margin-left: 30%;
+  float: left;
+}
+
+.board {
+  height: 100px;
+  width: 14%;
+  float: left;
+  border: 1px solid black;
+}
+
+.mid {
+  margin-top: 102px;
+  background-color: red;
+}
+
+.board.green {
+  background-color: green;
+}
+
+.board.black {
+  background-color: black;
+}
+
+p {
+  color: white;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.inputSection {
+width: 100%;
+height: 500px;
+display: block;
+float: left;
+margin-top: 40px;
+}
+
+.contain {
+  height: 300px;
+  width: 25%;
+  float: left;
+  margin-left: 5%;
+  margin-top: 10px;
+}
+
+form {
+  margin-left: 25%;
+}
+
+input {
+  height: 30px;
+  font-size: 20px;
+}
+
+button {
+  height: 30px;
+}
+
+select {
+  height: 30px;
+  width: 30%;
+  margin-left: 25%;
+  margin-top: 10px;
+}
