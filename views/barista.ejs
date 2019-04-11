@@ -1,17 +1,14 @@
+
 <!doctype html>
 <html>
-<head>
-<<<<<<< HEAD
-  <title>Barista Profile</title>
-=======
-  <title></title>
->>>>>>> master
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-  <link rel="stylesheet" href="style.css">
-</head>
+  <head>
+    <title>Barista Profile</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+  </head>
 <body>
-  <div class="container">
+  <section class="container">
     <div class="page-header text-center">
       <a href="/logout" class="btn btn-default btn-sm">Logout</a>
     </div>
@@ -23,8 +20,7 @@
         <span><%= orders[i].orderItem %></span>
         <!-- add checkbox for completion -->
         <% } %>
-        <div>
-
+        <div class="orders">
           <% for(var i = 0; i < orders.length; i++) { %>
             <span><%= orders[i].orderName %></span>
             <span><%= orders[i].orderItem %></span>
@@ -32,8 +28,9 @@
             <% } %>
             <!-- add timestamp with moment pkg -->
             <!-- completed field(marks if order is completed which moves it into Completed display) is part of the collection, but excluded from display -->
-          </div>
-        </div>
-        <script src="main.js"></script>
-      </body>
-      </html>
+      </div> <!-- orders -->
+    </div> <!-- well -->
+  </section><!-- container -->
+  <script src="main.js"></script>
+</body>
+</html>
