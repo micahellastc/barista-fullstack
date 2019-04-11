@@ -19,7 +19,6 @@ module.exports = function(app, passport, db) {
     })
   })
 
-
   // going through the collection an making it into an array
   app.get('/barista', isLoggedIn, function(req, res) {
     db.collection('orders').find().toArray((err, result) => {
