@@ -1,55 +1,50 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Roulette</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-  <h1>Roulette</h1>
-  <section class="container">
-    <div class="board green"> <p>1</p> </div>
-    <div class="board black"> <p>2</p> </div>
-    <div class="board green"> <p>3</p> </div>
-    <div class="board black"> <p>4</p> </div>
-    <div class="board green"> <p>5</p> </div>
-    <div class="board black"> <p>6</p> </div>
-    <div class="board mid"> <p>0</p> </div>
-    <div class="board green"> <p>7</p> </div>
-    <div class="board black"> <p>8</p> </div>
-    <div class="board green"> <p>9</p> </div>
-    <div class="board black"> <p>10</p> </div>
-    <div class="board green"> <p>11</p> </div>
-    <div class="board black"> <p>12</p> </div>
-  </section>
+<head>
+  <meta charset="utf-8">
+  <title>Merda de Macaco</title>
+  <link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet"></head>
+<body>
+  <button action="/login" type="button" name="button" class="baristalogin">Barista Login</button>
 
-  <section class="inputSection">
-    <section class="contain bank">
-      <h2>Bank</h2>
-      <p>$<span class="userBank">1,000</span></p>
-    </section>
-    <section class="contain inputs">
-      <h2>Bets</h2>
-      <input id="placedBet" type="text" name="" value="" placeholder="Place your bet here">
+  <div class="container">
 
-      <select class="colors" name="">
-        <option value="Green">Green</option>
-        <option value="Black">Black</option>
-        <option value="Red">Red</option>
-      </select>
-      <button id="betClick" type="button" name="button">Place Bet</button>
+    <h1>Merda de Macaco</h1>
+    <form class="" action="/" method="post">
+      <h2>Size</h2>
+      <fieldset>
+        <input id="small" type="checkbox" name="size" value="small">
+        <label for="small">Small</label>
 
-    </section>
-    <section class="contain displayResult">
-      <h2>Result</h2>
-        <p class="result"></p>
-    </section>
-  </section>
+        <input id="medium" type="checkbox" name="size" value="medium">
+        <label for="medium">Medium</label>
+
+        <input id="large" type="checkbox" name="size" value="large">
+        <label for="large">Large</label>
+
+      </fieldset>
+      <h2>Flavor</h2>
+      <fieldset>
+
+        <input id="thai" type="checkbox" name="flavor" value="thai">
+        <label for="thai">Thai Tea</label>
+
+        <input id="matcha" type="checkbox" name="flavor" value="matcha">
+        <label for="matcha">Matcha Milk Tea</label>
+
+        <input id="taro" type="checkbox" name="flavor" value="taro">
+        <label for="taro">Taro</label>
+      </fieldset>
+      <input type="text" name="" value="" placeholder="Enter Your Name">
+      <button type="button" name="button">Submit Order</button>
+    </form>
+  </div>
 
   <script src="main.js" type="text/javascript">
 
   </script>
-  </body>
+</body>
 </html>
 
 
