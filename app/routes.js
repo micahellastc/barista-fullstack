@@ -6,7 +6,7 @@ module.exports = function(app, passport, db) {
 
   // show the home page (will also have our login links)
 
-  app.get('/cashier', function(req, res) {
+  app.get('/', function(req, res) {
     res.render('cashier.ejs');
   });
 
@@ -46,6 +46,7 @@ module.exports = function(app, passport, db) {
       res.send(result)
     })
   })
+
   // this is for displaying the orders for them to be deleted on the cashier page
   // app.get('/cashier', isLoggedIn, function(req, res) {
   //   db.collection('orders').find().toArray((err, result) => {
