@@ -11,7 +11,7 @@ module.exports = function(app, passport, db) {
   });
 
   // creating the inputs of the order proprties
-  app.post('/cashier', (req, res) => {
+  app.post('/barista-login', (req, res) => {
     db.collection('orders').save({orderName: req.body.orderName,orderItem: req.body.orderItem, baristaName: null, completed: false}, (err, result) => {
       if (err) return console.log(err)
       console.log('saved to database')
