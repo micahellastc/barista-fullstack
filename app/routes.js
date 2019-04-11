@@ -87,7 +87,7 @@ module.exports = function(app, passport, db) {
 
   // process the login form
   app.post('/login', passport.authenticate('local-login', {
-    successRedirect : '/cashier', // redirect to the secure profile section
+    successRedirect : '/barista', // redirect to the secure profile section
     failureRedirect : '/login', // redirect back to the signup page if there is an error
     failureFlash : true // allow flash messages
   }));
@@ -95,7 +95,7 @@ module.exports = function(app, passport, db) {
   // SIGNUP =================================
   // process the signup form
   app.post('/signup', passport.authenticate('local-signup', {
-    successRedirect : '/cashier', // redirect to the secure profile section
+    successRedirect : '/barista', // redirect to the secure profile section
     failureRedirect : '/login', // redirect back to the signup page if there is an error
     failureFlash : true // allow flash messages
   }));
