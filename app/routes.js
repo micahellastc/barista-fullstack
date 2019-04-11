@@ -19,7 +19,6 @@ module.exports = function(app, passport, db) {
     })
   })
 
-
   // going through the collection an making it into an array
   app.get('/barista', isLoggedIn, function(req, res) {
     db.collection('orders').find().toArray((err, result) => {
@@ -32,7 +31,7 @@ module.exports = function(app, passport, db) {
   });
 
   app.put('/barista', (req, res) => {
-    db.collection('order')
+    db.collection('orders')
     .findOneAndUpdate({orderName: req.body.orderName, orderItem: req.body.orderItem}, {
       $set:
       {baristaName:req.body.baristaName,
