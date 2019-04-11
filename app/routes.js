@@ -31,7 +31,7 @@ module.exports = function(app, passport, db) {
   });
 
   app.put('/barista', (req, res) => {
-    db.collection('order')
+    db.collection('orders')
     .findOneAndUpdate({orderName: req.body.orderName, orderItem: req.body.orderItem}, {
       $set:
       {baristaName:req.body.baristaName,
