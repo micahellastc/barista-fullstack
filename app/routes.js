@@ -11,7 +11,7 @@ module.exports = function(app, passport, db) {
   });
 
   // creating the inputs of the order proprties
-  app.post('/barista-login', (req, res) => {
+  app.post('/barista', (req, res) => {
     db.collection('orders').save({orderName: req.body.orderName,orderItem: req.body.orderItem, baristaName: null, completed: false}, (err, result) => {
       if (err) return console.log(err)
       console.log('saved to database')
@@ -21,7 +21,7 @@ module.exports = function(app, passport, db) {
 
 
   // going through the collection an making it into an array
-  app.get('/barista-login', isLoggedIn, function(req, res) {
+  app.get('/barista', isLoggedIn, function(req, res) {
     db.collection('orders').find().toArray((err, result) => {
       if (err) return console.log(err)
       res.render('barista.ejs', {
@@ -31,7 +31,7 @@ module.exports = function(app, passport, db) {
     })
   });
 
-  app.put('/barista-login', (req, res) => {
+  app.put('/barista', (req, res) => {
     db.collection('order')
     .findOneAndUpdate({orderName: req.body.orderName, orderItem: req.body.orderItem}, {
       $set:
@@ -111,7 +111,7 @@ module.exports = function(app, passport, db) {
     user.local.email    = undefined;
     user.local.password = undefined;
     user.save(function(err) {
-      res.redirect('/barista-login');
+      res.redirect('/barista');
     });
   });
 
