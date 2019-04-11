@@ -86,7 +86,7 @@ module.exports = function(app, passport, db) {
 
   // process the login form
   app.post('/login', passport.authenticate('local-login', {
-    successRedirect : '/owner', // redirect to the secure profile section
+    successRedirect : '/cashier', // redirect to the secure profile section
     failureRedirect : '/login', // redirect back to the signup page if there is an error
     failureFlash : true // allow flash messages
   }));
@@ -94,7 +94,7 @@ module.exports = function(app, passport, db) {
   // SIGNUP =================================
   // process the signup form
   app.post('/signup', passport.authenticate('local-signup', {
-    successRedirect : '/owner', // redirect to the secure profile section
+    successRedirect : '/cashier', // redirect to the secure profile section
     failureRedirect : '/login', // redirect back to the signup page if there is an error
     failureFlash : true // allow flash messages
   }));
@@ -111,7 +111,7 @@ module.exports = function(app, passport, db) {
     user.local.email    = undefined;
     user.local.password = undefined;
     user.save(function(err) {
-      res.redirect('/profile');
+      res.redirect('/barista-login');
     });
   });
 
