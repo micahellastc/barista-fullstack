@@ -25,7 +25,7 @@ module.exports = function(app, passport, db) {
       if (err) return console.log(err)
       res.render('barista.ejs', {
         user : req.user,
-        order: result
+        orders: result
       })
     })
   });
