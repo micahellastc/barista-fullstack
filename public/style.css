@@ -3,23 +3,42 @@ body {
   background-size: cover;
   font-family: 'Maven Pro', sans-serif;
 }
-.baristalogin {
+.firstBtn {
   margin-left: 84%;
-  margin-top: 2%;
+  margin-bottom: 2%:
 }
 .container {
-  width: 80%;
+  width: 79%;
   margin: auto;
   background-color: rgba(229, 229, 229, 0.5);
-  height: 500px;
+  height: 777px;
+  padding: 1% 0 0 1%;
 }
 fieldset {
   width: 40%;
+  border: solid 1px white;
 }
 input {
   margin-top: 2%;
   height: 25px;
+  border-radius: 5px;
+  border: solid gray 1px;
 }
 button {
   height: 30px;
+  width: 100px;
+  border-radius: 5px;
+  background-color: rgba(255, 0, 0, 0.1);
+  border: solid white 1px;
+  margin-bottom: 1%;
+}
+a {
+  text-decoration: none;
+}
+.form-control {
+  width: 20%;
+  height: 50px;
+}
+.loginBtns {
+  margin-top: 2%;
 }
