@@ -11,27 +11,22 @@
 </a>
   <div class="container">
     <h1>Merda de Macaco</h1>
-    <form class="" action="/" method="post">
+    <form class="" action="/submitOrder" method="post">
       <h2>Size</h2>
       <fieldset>
-        <input id="small" type="checkbox" name="size" value="small">
-        <label for="small">Small</label>
-        <input id="medium" type="checkbox" name="size" value="medium">
-        <label for="medium">Medium</label>
-        <input id="large" type="checkbox" name="size" value="large">
-        <label for="large">Large</label>
+        <input class="size" type="radio" name="size" value="small">Small<br>
+        <input class="size" type="radio" name="size" value="med">Medium<br>
+        <input class="size" type="radio" name="size" value="large">Large
       </fieldset>
+
       <h2>Flavor</h2>
       <fieldset>
-        <input id="thai" type="checkbox" name="flavor" value="thai">
-        <label for="thai">Thai Tea</label>
-        <input id="matcha" type="checkbox" name="flavor" value="matcha">
-        <label for="matcha">Matcha Milk Tea</label>
-        <input id="taro" type="checkbox" name="flavor" value="taro">
-        <label for="taro">Taro</label>
+        <input class="flavor" type="radio" name="flavor" value="thai">Thai Tea<br>
+        <input class="flavor" type="radio" name="flavor" value="matcha">Matcha Milk Tea<br>
+        <input class="flavor" type="radio" name="flavor" value="taro">Taro
       </fieldset>
-      <input type="text" name="" value="" placeholder="Enter Your Name">
-      <button type="button" name="button">Submit Order</button>
+      <input class="userName" type="text" name="orderNameValue" value="" placeholder="Enter Your Name">
+      <button class="submit" type="button" name="button">Submit Order</button>
     </form>
   </div>
   <script src="main.js" type="text/javascript">

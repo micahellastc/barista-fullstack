@@ -10,6 +10,7 @@ module.exports = function(app, passport, db) {
     res.render('cashier.ejs');
   });
 
+
   // creating the inputs of the order proprties
   app.post('/barista', (req, res) => {
     db.collection('orders').save({orderName: req.body.orderName,orderItem: req.body.orderItem, baristaName: null, completed: false}, (err, result) => {
@@ -19,16 +20,27 @@ module.exports = function(app, passport, db) {
     })
   })
 
+  app.post('/submitOrder', (req, res) => {
+    console.log(req)
+    db.collection('orders').save({orderName: req.body.orderNameValue, flavor: req.body.flavor, size: req.body.size, baristaName: null, completed: false}, (err, result) => {
+      if (err) return console.log(err)
+      console.log('saved to database')
+      res.redirect('/')
+    })
+  })
+
   // going through the collection an making it into an array
   app.get('/barista', isLoggedIn, function(req, res) {
     db.collection('orders').find().toArray((err, result) => {
+      console.log(result)
       if (err) return console.log(err)
       res.render('barista.ejs', {
-        user : req.user,
-        order: result
+        user : res.user,
+        orders: result
       })
     })
   });
+
 
   app.put('/barista', (req, res) => {
     db.collection('orders')
