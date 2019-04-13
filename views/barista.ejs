@@ -14,17 +14,22 @@
     <!-- barista Profile -->
     <div class="well">
       <h1>Orders in Progress</h1>
-      <% for(var i = 0; i < order.length; i++) { %>
-        <span><%= orders[i].orderName %></span>
-        <span><%= orders[i].orderItem %></span>
-        <!-- add checkbox for completion -->
-        <% } %>
-        <div class="orders">
-          <% for(var i = 0; i < order.length; i++) { %>
-            <span><%= orders[i].orderName %></span>
-            <span><%= orders[i].orderItem %></span>
-            <span><%= orders[i].baristaName %></span>
-            <% } %>
+      <h1>user hello<% user %></h1>
+      <ul>
+        <% for(var i = 0; i < orders.length; i++) { %>
+          <li><%= orders[i].orderName %>
+          <%= orders[i].flavor %>
+          <%= orders[i].size %></li>
+          <!-- add checkbox for completion -->
+          <% } %>
+          <div class="orders">
+            <% for(var i = 0; i < orders.length; i++) { %>
+              <span><%= orders[i].orderName %></span>
+              <span><%= orders[i].orderItem %></span>
+              <span><%= orders[i].baristaName %></span>
+              <% } %>
+      </ul>
+
             <!-- add timestamp with moment pkg -->
             <!-- completed field(marks if order is completed which moves it into Completed display) is part of the collection, but excluded from display -->
       </div> <!-- orders -->

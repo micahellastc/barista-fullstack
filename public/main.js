@@ -1,73 +1,92 @@
-//declare variable for placedBet, used in function to grab user's bet
-//declare variable for win to use in other functions
-//declare variable for wins counter
-//declare variable for loss counter
-let placedBet=0
-let win;
-let wins=0;
-let losses=0;
-let resMsg = document.querySelector('.result');
-let userBank = document.querySelector('.userBank');
-let color= document.querySelector('.colors');
+const orderSize = document.querySelectorAll('.size');
+const orderFlavor = document.querySelectorAll('.flavor');
+const orderName = document.querySelector('.userName');
+const submitOrder = document.querySelector('.submit');
+// console.log(ordeName)
+var sizeValue = ""
+var flavorValue = ""
 
-document.getElementById('betClick').addEventListener('click', function() {
-  // takes an amount as bet
-  placedBet = document.querySelector('#placedBet').value;
-  if(placedBet > 6666){
-    alert('Your bet must be lower than $6,666')
-  }
-  randNum()
-})
 
-//Code for random number generator (core part of game) & win comparisan
-function randNum (){
-  let num = Math.floor(Math.random()*13)
+Array.from(orderSize).forEach(function (element) {
+      element.addEventListener('click', function(){
+        if(element.checked){
+          sizeValue = element.value
+        }
+      //   // var for Size
+      //   // var for flavor
+      //   // add those two vars and make them equal to itemOrder
+      //   // OR
+      //   // var that is equal to size + flavor
+      //   // grab value for size add the value for order set that equal to orderItem
+      //   // orderName equal to input value
+      //   const  = this.parentNode.parentNode.childNodes[1].innerText
+      //   const  = this.parentNode.parentNode.childNodes[3].innerText
+      //   const  = parseFloat(this.parentNode.parentNode.childNodes[5].innerText)
 
-//formula to compare users guess to game result
-  compare(num)
-  // win/loss message generated
-  if(win===true){
-    //if user wins, bet is multiplied to give reward
-    placedBet *= 5
-    //wins counter increased
-    wins+=1;
-    resMsg.innerText="Congratulations, you win! But dont't get used to it, loser";
-    //user bank changed
-    userBank.innerText= parseInt(userBank.innerText) + placedBet
-  }else if(win===false){
-    //loss counter increased
-    placedBet=document.querySelector('#placedBet').value
-    losses+=1
-    resMsg.innerText="Ha! You lose. Yo money's miiiine";
-    //user bank changed
-    userBank.innerText= parseInt(userBank.innerText) - placedBet
-  }
-  fetch('result', {
-      method: 'put',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        'profit': parseInt(placedBet),
-        'wins': parseInt(wins),
-        'losses': parseInt(losses)
-      })
+      //   })
+      //   .then(response => {
+      //     if (response.ok) return response.json()
+      //   })
+      //   .then(data => {
+      //     console.log(data)
+      //     window.location.reload(true)
+      //   })
+      });
+});
+
+Array.from(orderFlavor).forEach(function (element) {
+      element.addEventListener('click', function(){
+        if(element.checked){
+          flavorValue = element.value
+        }
+      //   // var for Size
+      //   // var for flavor
+      //   // add those two vars and make them equal to itemOrder
+      //   // OR
+      //   // var that is equal to size + flavor
+      //   // grab value for size add the value for order set that equal to orderItem
+      //   // orderName equal to input value
+      //   const  = this.parentNode.parentNode.childNodes[1].innerText
+      //   const  = this.parentNode.parentNode.childNodes[3].innerText
+      //   const  = parseFloat(this.parentNode.parentNode.childNodes[5].innerText)
+      //   fetch('', {
+      //     method: 'post',
+      //     headers: {'Content-Type': 'application/json'},
+      //     body: JSON.stringify({
+      //       'orderItem': size,
+      //       'orderName': orderName
+      //     })
+      //   })
+        // .then(response => {
+        //   if (response.ok) return response.json()
+        // })
+        // .then(data => {
+        //   console.log(data)
+        //   window.location.reload(true)
+        // })
+      });
+});
+submitOrder.addEventListener('click', function(){
+  let orderNameValue = ""
+  orderNameValue = orderName.value
+  console.log(orderNameValue)
+  console.log(sizeValue)
+  console.log(flavorValue)
+  fetch('/submitOrder',{
+    method: 'post',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({
+      'orderItem': sizeValue,
+      'orderName': orderNameValue,
+      'flavorValue': flavorValue
     })
     .then(response => {
-     if (response.ok) return response.json();
-   })
-   .then(data => {
-     console.log(data)
-   });
- }
-
-function compare(num){
-// takes input of color from a drop down as the bet and compares to generated number
-  if((num===0)&&(color.value==="Red")){
-    win = true
-  }else if((num%2===0)&&(color.value==="Black")){
-    win = true
-  }else if((num%2!==0)&&(color.value==="Green")){
-    win = true
-  }else{
-    win = false
-  }
-}
+      console.log(response)
+      if (response.ok) return response.json()
+    })
+    .then(data => {
+      console.log(data)
+      window.location.reload(true)
+    })
+});
+})
