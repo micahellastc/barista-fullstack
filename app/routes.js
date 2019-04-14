@@ -32,7 +32,7 @@ module.exports = function(app, passport, db) {
   // going through the collection an making it into an array
   app.get('/barista', isLoggedIn, function(req, res) {
     db.collection('orders').find().toArray((err, result) => {
-      console.log(result)
+      // console.log(result)
       if (err) return console.log(err)
       res.render('barista.ejs', {
         user : res.user,
@@ -45,14 +45,14 @@ module.exports = function(app, passport, db) {
   app.put('/completedOrder', (req, res) => {
     console.log("completedOrder .put workin'")
     db.collection('orders')
-    .findOneAndUpdate({orderName: req.body.name, orderItem: req.body.item}, {
+    .findOneAndUpdate({orderName: req.body.name, orderItem: req.body.order }, {
       $set:
       {baristaName: req.user.local.email,
-        completed:true
+        completed: true
       }
     }, {
       sort: {_id: -1},
-      upsert: true
+      upsert: false
     }, (err, result) => {
       if (err) return res.send(err)
       res.send(result)
