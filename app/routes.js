@@ -12,22 +12,22 @@ module.exports = function(app, passport, db) {
 
 
   // creating the inputs of the order proprties
-  app.post('/barista', (req, res) => {
-    db.collection('orders').save({orderName: req.body.orderName,orderItem: req.body.orderItem, baristaName: null, completed: false}, (err, result) => {
+  app.post('/submitOrder', (req, res) => {
+    db.collection('orders').save({orderName: req.body.orderName, orderItem: req.body.orderItem, baristaName: null, completed: false}, (err, result) => {
       if (err) return console.log(err)
       console.log('saved to database')
       res.redirect('/')
     })
   })
 
-  app.post('/submitOrder', (req, res) => {
-    console.log(req)
-    db.collection('orders').save({orderName: req.body.orderNameValue, flavor: req.body.flavor, size: req.body.size, baristaName: null, completed: false}, (err, result) => {
-      if (err) return console.log(err)
-      console.log('saved to database')
-      res.redirect('/')
-    })
-  })
+  // app.post('/submitOrder', (req, res) => {
+  //   console.log(req.body)
+  //   db.collection('orders').save({orderName: req.body.orderNameValue, req.body.orderItem, baristaName: null, completed: false}, (err, result) => {
+  //     if (err) return console.log(err)
+  //     console.log('saved to database')
+  //     res.redirect('/')
+  //   })
+  // })
 
   // going through the collection an making it into an array
   app.get('/barista', isLoggedIn, function(req, res) {
@@ -42,11 +42,12 @@ module.exports = function(app, passport, db) {
   });
 
 
-  app.put('/barista', (req, res) => {
+  app.put('/completedOrder', (req, res) => {
+    console.log("completedOrder .put workin'")
     db.collection('orders')
-    .findOneAndUpdate({orderName: req.body.orderName, orderItem: req.body.orderItem}, {
+    .findOneAndUpdate({orderName: req.body.name, orderItem: req.body.item}, {
       $set:
-      {baristaName:req.body.baristaName,
+      {baristaName: req.user.local.email,
         completed:true
       }
     }, {
