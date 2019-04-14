@@ -26,14 +26,19 @@ Array.from(orderFlavor).forEach(function (element) {
 
 Array.from(completeBtn).forEach(function(element) {
   element.addEventListener('click', function(){
-    console.log("name variable is", this.getAttribute("data-name"))
-    console.log("order variable", this.getAttribute("data-order"))
+    const name = this.getAttribute("data-name");
+    const order = this.getAttribute("data-order");
+// with time, add randomizer that changes the person's name, making it mispronounce each time
+    console.log("name variable is", name)
+    console.log("order variable", order)
+    var speak = new SpeechSynthesisUtterance(`Hey ${name}, come get your ${order}`);
+     window.speechSynthesis.speak(speak);
     fetch('/completedOrder',{
       method: 'put',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
-        'name': this.getAttribute("data-name"),
-        'order': this.getAttribute("data-item")
+        'name': name,
+        'order': order
       })
       // .then(response => {
       //   console.log(response)

@@ -21,15 +21,16 @@
           <span ><%= orders[i].orderItem %></span>
           <button data-order="<%= orders[i].orderItem %>" data-name="<%= orders[i].orderName %>" class="complete" type="button" name="button">Complete</button>
         </li>
-          <!-- add checkbox for completion -->
           <% } %>
           <h1>Completed Orders</h1>
           <div class="orders">
             <% for(var j = 0; j < orders.length; j++) { %>
+              <% if(orders[j].completed===true){ %>
 
             <li> <span><%= orders[j].orderName %></span>
               <span><%= orders[j].orderItem %></span>
               <span><%= orders[j].baristaName %></span>
+              <% } %>
               <% } %>
               </li>
       </ul>
