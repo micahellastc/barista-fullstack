@@ -14,20 +14,24 @@
     <!-- barista Profile -->
     <div class="well">
       <h1>Orders in Progress</h1>
-      <h1>user hello<% user %></h1>
+
       <ul>
         <% for(var i = 0; i < orders.length; i++) { %>
-          <li><%= orders[i].orderName %>
-          <%= orders[i].flavor %>
-          <%= orders[i].size %></li>
+          <li><span><%= orders[i].orderName %></span>
+          <span ><%= orders[i].orderItem %></span>
+          <button data-order="<%= orders[i].orderItem %>" data-name="<%= orders[i].orderName %>" class="complete" type="button" name="button">Complete</button>
+        </li>
           <!-- add checkbox for completion -->
           <% } %>
+          <h1>Completed Orders</h1>
           <div class="orders">
-            <% for(var i = 0; i < orders.length; i++) { %>
-              <span><%= orders[i].orderName %></span>
-              <span><%= orders[i].orderItem %></span>
-              <span><%= orders[i].baristaName %></span>
+            <% for(var j = 0; j < orders.length; j++) { %>
+
+            <li> <span><%= orders[j].orderName %></span>
+              <span><%= orders[j].orderItem %></span>
+              <span><%= orders[j].baristaName %></span>
               <% } %>
+              </li>
       </ul>
 
             <!-- add timestamp with moment pkg -->

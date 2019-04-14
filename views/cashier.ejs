@@ -11,22 +11,10 @@
 </a>
   <div class="container">
     <h1>Merda de Macaco</h1>
-    <form class="" action="/submitOrder" method="post">
-      <h2>Size</h2>
-      <fieldset>
-        <input class="size" type="radio" name="size" value="small">Small<br>
-        <input class="size" type="radio" name="size" value="med">Medium<br>
-        <input class="size" type="radio" name="size" value="large">Large
-      </fieldset>
-
-      <h2>Flavor</h2>
-      <fieldset>
-        <input class="flavor" type="radio" name="flavor" value="thai">Thai Tea<br>
-        <input class="flavor" type="radio" name="flavor" value="matcha">Matcha Milk Tea<br>
-        <input class="flavor" type="radio" name="flavor" value="taro">Taro
-      </fieldset>
-      <input class="userName" type="text" name="orderNameValue" value="" placeholder="Enter Your Name">
-      <button class="submit" type="button" name="button">Submit Order</button>
+    <form class="cashierForm" action="/submitOrder" method="post">
+      <input class="userName" type="text" name="orderName" value="" placeholder="Enter Your Name">
+      <input type="text" name="orderItem" value="" placeholder="Order">
+      <button class="submit" type="submit" name="button">Submit Order</button>
     </form>
   </div>
   <script src="main.js" type="text/javascript">
